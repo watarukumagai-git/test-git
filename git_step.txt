@@ -1,0 +1,47 @@
+
+【リモートリポジトリの作成】
+- Step 1: GitHubで作成
+
+【ローカルリポジトリの作成】
+- Step 1: Gitのローカルリポジトリを作成
+[Git Bash]$ mkdir [git directory] 
+[Git Bash]$ cd [git directory] 
+[Git Bash]$ git init
+
+【ローカルリポジトリに新規ファイルを追加】
+- Step 1: ファイル[file name]を作成
+- Step 2: [file name]をadd(stage)する
+[Git Bash]$ git add [file name]
+- Step 3: git statusを確認する
+[Git Bash]$ git status
+- Step 4: メッセージを添えて、commitする
+[Git Bash]$ git commit -m "[msg]"
+- Step 5: mainブランチを作成する
+[Git Bash]$ git branch -M main
+
+【リモートリポジトリにpushする: local => remote】
+- Step 1: リモートリポジトリにadd(stage)する
+[Git Bash]$ git remote add [remote repository] [GitHub URL].git
+- Step 2: リモートリポジトリにpushする
+[Git Bash]$ git push -u origin main
+
+【リモートリポジトリからcloneする: remote => local】
+- Step 1: clone
+[Git Bash]$ git clone [GitHub URL].git
+
+【SSHの公開鍵と秘密鍵の生成方法】
+- Step 1: sshディレクトリで鍵を生成する
+   - step1-1: bash pathに移動する。通常は[/Users/username]。
+[Git Bash]$ cd [bash path]
+   - step1-2: 新規に隠しディレクトリ".ssh"を作成する。
+[Git Bash]$ mkdir ~/.ssh
+   - step1-3: 隠しディレクトリ".ssh"が生成されていることを確認する。
+[Git Bash]$ ls -a
+   - step1-4: 隠しディレクトリ".ssh"に移動する。
+[Git Bash]$ cd ~/.ssh
+   - step1-5: 公開鍵id_rsaと秘密鍵id_rsa.pubを生成する。
+[Git Bash]$ ssh-keygen -t rsa
+- Step 2: SSHの公開鍵をGitHubに登録する
+   - step2-1: GitHubの鍵登録画面に行く。（https://github.com/settings/ssh/new）
+   - step2-2: .ssh/id_rsa.pubをメモ帳で開き、全文コピーする。
+   - step2-3: 登録画面のNew SSH keyに、ペーストする。
