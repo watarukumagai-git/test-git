@@ -22,7 +22,9 @@
 【リモートリポジトリにpushする: local => remote】
 - Step 1: リモートリポジトリにadd(stage)する
 [Git Bash]$ git remote add [remote repository] [GitHub URL].git
-- Step 2: リモートリポジトリにpushする
+- Step 2: メッセージを添えて、commitする
+[Git Bash]$ git commit -m "[msg]"
+- Step 3: リモートリポジトリにpushする
 [Git Bash]$ git push -u origin main
 
 【リモートリポジトリからcloneする: remote => local】
